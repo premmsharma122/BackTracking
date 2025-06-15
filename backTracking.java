@@ -17,11 +17,29 @@ public class backTracking {
             System.out.print(arr[i]+" ");
         }
     }
+    public static void subsets(int i, String ans, String str){
+        // base case 
+        if(i==str.length()){
+            if(ans.length() == 0){
+                System.out.println("Null");
+            }else{
+                System.out.println(ans);
+            }
+            return;
+        }
+        // recursion step
+        subsets(i+1, ans+str.charAt(i), str); // yes choice
+        // backtracking step
+        subsets(i+1, ans, str); // no choice
+    }
     public static void main(String[] args) {
-        int arr[] = new int[5];
-        changeArr(0, 1, arr); // here is the array of base case
-        System.out.println();
-        printArr(arr); // here is the backtrack array
+        // int arr[] = new int[5];
+        // changeArr(0, 1, arr); // here is the array of base case
+        // System.out.println();
+        // printArr(arr); // here is the backtrack array
+        String str = "abc";
+        String ans = " ";
+        subsets(0, ans, str);
 
     }
 }
